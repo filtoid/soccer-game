@@ -32,23 +32,33 @@ function PlayerUpdate(field){
     if(this.loc.y > field.size.y){
         this.loc.y = field.size.y;
     }
-
-    if(this.loc.x > (field.screen_dim.x/2) ){
+    
+    if( (field.size.x - this.loc.x) < (field.screen_dim.x/2) ){
+        field.offset.x = field.size.x - field.screen_dim.x;
+    }else if(this.loc.x > (field.screen_dim.x/2) ){
         field.offset.x = this.loc.x - (field.screen_dim.x/2);
     }
-    if( this.loc.y > (field.screen_dim.y/2) ){
+    if( (field.size.y - this.loc.y) < (field.screen_dim.y/2) ){
+        field.offset.y = field.size.y - field.screen_dim.y;
+    }else if( this.loc.y > (field.screen_dim.y/2) ){
         field.offset.y = this.loc.y - (field.screen_dim.y/2);
     } 
 }
 
-function PlayerDraw(ctx, field){
+function PlayerDraw(ctx){
     ctx.fillStyle = "#233147";
     var draw_x = this.loc.x;
-    if(this.loc.x > (this.field.screen_dim.x /2)){
+    if( (field.size.x - this.loc.x) < (field.screen_dim.x/2) ){
+        draw_x = field.screen_dim.x  - (field.size.x - this.loc.x);
+    }else if(this.loc.x > (this.field.screen_dim.x /2)){
         draw_x =  (this.field.screen_dim.x /2);
     }
+    
     var draw_y = this.loc.y;
-    if(this.loc.x > (this.field.screen_dim.y /2)){
+    if( (field.size.y - this.loc.y) < (field.screen_dim.y/2) ){
+        // console.log("here");
+        draw_y = field.screen_dim.y  - (field.size.y - this.loc.y);
+    }else if(this.loc.y > (this.field.screen_dim.y /2)){
         draw_y =  (this.field.screen_dim.y /2);
     }
     
