@@ -1,5 +1,8 @@
-# soccer-game
+# Soccer Game
 A repo for the livestream code - making a javascript football game to work in a browser
+
+# Running the Code
+Download the repo and just double click on index.html - it should run all of the code from there.
 
 # Watch
 The first live stream is over but you can catch up here:
