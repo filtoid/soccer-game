@@ -4,21 +4,23 @@ function Player(){
     this.loc = new Location(365, 500);
     this.size = new Location(25, 25);
     this.field = null;
+
+    this.speed = 5
 }
 
 function PlayerUpdate(field){
     this.field = field;
     if(isKeyPressed('D')){
-        this.loc.x += 2;
+        this.loc.x += this.speed;
     }
     if(isKeyPressed('A')){
-        this.loc.x -= 2;
+        this.loc.x -= this.speed;
     }
     if(isKeyPressed('W')){
-        this.loc.y -= 2;
+        this.loc.y -= this.speed;
     }
     if(isKeyPressed('S')){
-        this.loc.y += 2;
+        this.loc.y += this.speed;
     }
     if(this.loc.x < 0){
         this.loc.x = 0;
